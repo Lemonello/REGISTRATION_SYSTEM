@@ -45,7 +45,7 @@ void Admin::del_user(vector<User>& users)
 	cin >> name_del;
 	cout << "Enter security password:\t";
 	cin >> sec_pass;
-	if (sec_pass != PASS) atexit(finish_programm);
+	if (sec_pass != PASS) finish_programm();
 	for (int i = 0; i < number; i++)
 	{
 		if (name_del == users[i].get_name())

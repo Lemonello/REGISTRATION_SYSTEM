@@ -2,8 +2,7 @@
 #ifndef CLASSES_H
 #define CLASSES_H
 
-
-const int SIZE = 5;
+const int VEC_SIZE = 5;
 
 extern string admins_file, users_file, PASS;
 
@@ -108,8 +107,7 @@ int log_in_acc(vector<T>& data)
 			return i;
 		}
 	}
-	cout << "Try again!!!" << endl;
-	atexit(finish_programm);
+	finish_programm();
 }
 #endif
 

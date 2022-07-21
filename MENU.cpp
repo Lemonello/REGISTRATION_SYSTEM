@@ -61,13 +61,11 @@ user_again:
 	case LOG_IN:
 	{
 		int number = log_in_acc(users);
-		if (number != 404)
-		{
-			menu_help(1);
-			cin >> choice;
+		menu_help(1);
+		cin >> choice;
 		user_switch:
-			switch (choice)
-			{
+		switch (choice)
+		{
 			case CHANGE_NAME:
 			{
 				users[number].change_name();
@@ -96,7 +94,6 @@ user_again:
 			{
 				goto user_switch;
 			}
-			}
 		}
 		break;
 	}
@@ -118,13 +115,11 @@ void menu_admin(vector<Admin>& admins, vector<User>& users)
 	int choice;
 	read_file(admins, admins_file);
 	int number = log_in_acc(admins);
-	if (number != 404)
-	{
-		menu_help(2);
+	menu_help(2);
 	admin_switch:
-		cin >> choice;
-		switch (choice)
-		{
+	cin >> choice;
+	switch (choice)
+	{
 		case CHANGE_NAME:
 		{
 			admins[number].change_name();
@@ -153,7 +148,6 @@ void menu_admin(vector<Admin>& admins, vector<User>& users)
 		default:
 		{
 			goto admin_switch;
-		}
 		}
 	}
 }

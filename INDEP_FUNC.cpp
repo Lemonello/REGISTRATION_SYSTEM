@@ -43,7 +43,7 @@ void get_files(string& users_file, string& admins_file)
 		fin2.close();
 		return;
 	}
-	atexit(finish_programm);
+	finish_programm();
 }
 
 //Finishing programm at different situations
@@ -51,4 +51,5 @@ void get_files(string& users_file, string& admins_file)
 void finish_programm()
 {
 	cout << "Something went wrong" << endl;
+	exit(1);
 }
