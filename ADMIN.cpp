@@ -39,20 +39,31 @@ void Admin::show_all_users(vector<User>& users)
 void Admin::del_user(vector<User>& users)
 {
 	int number;
-	string name_del, sec_pass;
+	string  sec_pass;
+	char name_symb;
 	count_of_accs(users_file, number);
-	cout << "Enter name of user:\t";
-	cin >> name_del;
 	cout << "Enter security password:\t";
 	cin >> sec_pass;
+	cout << "Enter name of user by letter:\t";
+	cin >> name_symb;
 	if (sec_pass != PASS) finish_programm();
 	for (int i = 0; i < number; i++)
 	{
-		if (name_del == users[i].get_name())
+		if (tolower(name_symb) == users[i].get_name()[0] || toupper(name_symb) == users[i].get_name()[0])
 		{
-			auto iter_del = (users.begin() + i);
-			users.erase(iter_del);
-			return;
+			int choice;
+			cout << users[i].get_name() << endl;
+			cout << "Is this right name?" << endl;
+			cout << "1=Yes, 2-No" << endl;
+			cin >> choice;
+			if (choice == 1)
+			{
+				auto iter_del = (users.begin() + i);
+				users.erase(iter_del);
+				return;
+			}
+			if (choice == 2) continue;
 		}
+		system("cls");
 	}
 }

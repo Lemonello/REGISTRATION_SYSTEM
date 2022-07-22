@@ -22,5 +22,6 @@ using std::endl;
 using std::vector;
 using std::iterator;
 using std::exit;
+using std::system;
 
 #endif 
