@@ -1,6 +1,7 @@
 #include"CLASSES.h"
 #include"LIBRARIES.h"
 
+
 void Admin::change_name()
 {
 	string new_name;
@@ -39,22 +40,30 @@ void Admin::show_all_users(vector<User>& users)
 void Admin::del_user(vector<User>& users)
 {
 	int number;
-	string  sec_pass;
-	char name_symb;
+	string  sec_pass, name_check;
 	count_of_accs(users_file, number);
 	cout << "Enter security password:\t";
 	cin >> sec_pass;
 	cout << "Enter name of user by letter:\t";
-	cin >> name_symb;
+	cin >> name_check;
 	if (sec_pass != PASS) finish_programm();
 	for (int i = 0; i < number; i++)
 	{
-		if (tolower(name_symb) == users[i].get_name()[0] || toupper(name_symb) == users[i].get_name()[0])
+		int count = 0;
+		for (int j = 0; j < name_check.length(); j++)
 		{
-			int choice;
+			if (tolower(users[i].get_name()[j]) == name_check[j]||
+			toupper(users[i].get_name()[j]) == name_check[j])
+			{
+				count++;
+			}
+		}
+		if (count == name_check.length())
+		{
 			cout << users[i].get_name() << endl;
-			cout << "Is this right name?" << endl;
-			cout << "1=Yes, 2-No" << endl;
+			int choice;
+			cout << "Is this right word?" << endl;
+			cout << "1-Yes, 2-No" << endl;
 			cin >> choice;
 			if (choice == 1)
 			{
@@ -62,7 +71,6 @@ void Admin::del_user(vector<User>& users)
 				users.erase(iter_del);
 				return;
 			}
-			if (choice == 2) continue;
 		}
 		system("cls");
 	}
