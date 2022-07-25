@@ -49,19 +49,15 @@ void Admin::del_user(vector<User>& users)
 	if (sec_pass != PASS) finish_programm();
 	for (int i = 0; i < number; i++)
 	{
-		int count = 0;
-		for (int j = 0; j < name_check.length(); j++)
+		string user_name;
+		for (int j = 0; j < name_check.length(); j++) //generate string with loop
 		{
-			if (tolower(users[i].get_name()[j]) == name_check[j]||
-			toupper(users[i].get_name()[j]) == name_check[j])
-			{
-				count++;
-			}
+			user_name[j] = users[i].get_name()[j];
 		}
-		if (count == name_check.length())
+		if (_stricmp(user_name.c_str(), name_check.c_str())==0) //Function for compare string
 		{
-			cout << users[i].get_name() << endl;
 			int choice;
+			cout << users[i].get_name() << endl;
 			cout << "Is this right word?" << endl;
 			cout << "1-Yes, 2-No" << endl;
 			cin >> choice;
