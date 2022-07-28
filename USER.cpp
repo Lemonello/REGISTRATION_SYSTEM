@@ -4,7 +4,7 @@
 void User::change_name()
 {
 	string new_name;
-	cout << "Enter new name of user" << endl;
+	cout << "Enter new name" << endl;
 	cin.ignore();
 	getline(cin, new_name);
 	while (!check_dubl_name(users_file, new_name))

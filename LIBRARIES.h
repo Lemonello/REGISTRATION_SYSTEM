@@ -4,10 +4,7 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include<filesystem>
 #include<vector>
-#include<stdlib.h>
-#include<windows.h>
 
 // All usings
 

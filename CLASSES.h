@@ -49,14 +49,11 @@ public:
 
 //1-User, 2-Admin
 
-class Admin
+class Admin:User
 {
 	string name_of_admin, pass_of_admin;
 	int flag = 2;
 public:
-	template<typename T> friend void read_file(vector<T>& data, string name_of_file);
-	template<typename T> friend void out_file(vector<T>& data, string name_of_file);
-	template<typename T> friend int log_in_acc(vector<T>& data);
 	friend ofstream& operator<<(ofstream& stream, Admin ob);
 	friend istream& operator>>(istream& stream, Admin& ob);
 	friend ifstream& operator >> (ifstream& stream, Admin& ob);

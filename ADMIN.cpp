@@ -5,6 +5,7 @@
 void Admin::change_name()
 {
 	string new_name;
+	cout << "Enter new name" << endl;
 	cin.ignore();
 	getline(cin, new_name);
 	while (!check_dubl_name(admins_file, new_name))
@@ -44,9 +45,9 @@ void Admin::del_user(vector<User>& users)
 	count_of_accs(users_file, number);
 	cout << "Enter security password:\t";
 	cin >> sec_pass;
+	if (sec_pass != PASS) finish_programm();
 	cout << "Enter name of user by letter:\t";
 	cin >> name_check;
-	if (sec_pass != PASS) finish_programm();
 	for (int i = 0; i < number; i++)
 	{
 		string user_name;
